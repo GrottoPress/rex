@@ -24,42 +24,16 @@
 
 ## Usage
 
-1. Define a default adapter for your shard:
+1. Call the `Rex.t` helper in your shard as required:
 
    ```crystal
-   struct SomeShardI18nAdapter
-     include Rex::Adapter
+   Rex.t(:some_text, name: "Ama")
 
-     def translate(text : String | Symbol, *args) : String
-       translations = {
-         named: "Hello, %{name}!",
-         unnamed: "Hello, %s!",
-         plain: "Hello, World!"
-       }
+   Rex.t("some_text", {name: "John"})
 
-       sprintf(translations[text], *args)
-     end
-   end
-   ```
+   Rex.t("some.text", 45, "Judith")
 
-1. Configure *Rex* to use this default adapter:
-
-   ```crystal
-   Rex.configure do |settings|
-     settings.adapter = SomeShardI18nAdapter.new
-   end
-   ```
-
-1. Call the *i18n* helpers in your shard as required:
-
-   ```crystal
-   Rex.t(:named, name: "Ama")
-
-   Rex.t(:named, {name: "John"})
-
-   Rex.t(:unnamed, "Judith")
-
-   Rex.t(:plain)
+   Rex.t(:another_text)
    ```
 
 1. The consumer application defines their adapter:
@@ -79,7 +53,7 @@
    end
    ```
 
-1. The consumer application may then replace your default adapter:
+1. The consumer application then configures *Rex* to use this adapter:
 
    ```crystal
    # ->>> src/config/i18n.cr
@@ -90,6 +64,21 @@
    ```
 
    The consumer application sets up translations according whatever backend they are using.
+
+### Testing
+
+*Rex* comes with `Rex::DevAdapter` which may be used for tests:
+
+```crystal
+# ->>> spec/my_app/some_spec.cr
+
+Rex.temp_config(adapter: Rex::DevAdapter.new) do
+  # ...
+  # `Rex::DevAdapter` returns the text passed to `Rex.t` unchanged
+  Rex.t(:some_text, {name: "Kwame"}).should(eq "some_text")
+  # ...
+end
+```
 
 ## Development
 
