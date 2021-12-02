@@ -1,0 +1,16 @@
+name: rex
+version: 0.1.0
+description: A simple i18n adapter interface for Crystal
+
+authors:
+  - GrottoPress <info@grottopress.com>
+  - N Atta Kusi Adusei
+
+license: MIT
+
+crystal: ~> 1.0
+
+dependencies:
+  habitat:
+    github: luckyframework/habitat
+    version: ~> 0.4.7
