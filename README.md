@@ -50,12 +50,12 @@
 
      def translate(text : String | Symbol, *args) : String
        # You may use any i18n shard as backend
-       Somei18nShard.t(text, *args)
+       Somei18nShard.translate(text, *args)
      end
 
      def localize(value, *args) : String
        # You may use any i18n shard as backend
-       Somei18nShard.l(value, *args)
+       Somei18nShard.localize(value, *args)
      end
    end
    ```
