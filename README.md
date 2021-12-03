@@ -52,6 +52,11 @@
        # You may use any i18n shard as backend
        Somei18nShard.t(text, *args)
      end
+
+     def localize(value, *args) : String
+       # You may use any i18n shard as backend
+       Somei18nShard.l(value, *args)
+     end
    end
    ```
 
