@@ -13,6 +13,10 @@ private struct SomeAdapter
 
     sprintf(translations[text], *args)
   end
+
+  def localize(value, *args) : String
+    value.to_s
+  end
 end
 
 Rex.configure do |settings|

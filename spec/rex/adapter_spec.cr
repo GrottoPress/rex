@@ -10,4 +10,13 @@ describe Rex::Adapter do
       Rex.t(:plain).should eq("Hello, World!")
     end
   end
+
+  describe "#localize" do
+    it "localizes value" do
+      time = Time.utc
+
+      Rex.l(time, :custom).should(eq time.to_s)
+      Rex.l(46).should eq("46")
+    end
+  end
 end

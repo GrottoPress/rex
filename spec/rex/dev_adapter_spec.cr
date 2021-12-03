@@ -8,4 +8,10 @@ describe Rex::DevAdapter do
       Rex.t(:plain).should eq("plain")
     end
   end
+
+  it "localizes value" do
+    Rex.temp_config(adapter: Rex::DevAdapter.new) do
+      Rex.l(25, :custom).should(eq "25")
+    end
+  end
 end

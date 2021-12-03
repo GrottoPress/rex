@@ -6,5 +6,8 @@ module Rex::Adapter
     def translate(text : String | Symbol, **named_args) : String
       translate(text, named_args)
     end
+
+    def localize(value, *args) : String
+    end
   end
 end

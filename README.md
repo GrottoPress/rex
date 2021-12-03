@@ -24,16 +24,18 @@
 
 ## Usage
 
-1. Call the `Rex.t` helper in your shard as required:
+1. Call the *i18n* helpers in your shard as required:
 
    ```crystal
+   # Translation
    Rex.t(:some_text, name: "Ama")
-
    Rex.t("some_text", {name: "John"})
-
    Rex.t("some.text", 45, "Judith")
-
    Rex.t(:another_text)
+
+   # Localization
+   Rex.l(Time.utc)
+   Rex.l(123_456, :arg)
    ```
 
 1. The consumer application defines their adapter:
