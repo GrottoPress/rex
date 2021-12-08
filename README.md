@@ -70,7 +70,7 @@
    end
    ```
 
-   The consumer application sets up translations according whatever backend they are using.
+   The consumer application sets up translations according to whatever backend they are using.
 
 ### Testing
 
