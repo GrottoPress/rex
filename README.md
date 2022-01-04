@@ -57,6 +57,9 @@
        # You may use any i18n shard as backend
        Somei18nShard.localize(value, *args)
      end
+
+     # You may add more `#translate` and `#localize` overloads
+     # as needed
    end
    ```
 
