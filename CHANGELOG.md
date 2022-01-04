@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - Allow `Rex.l` helper to accept named arguments
+- Add named arguments overload for `Rex::DevAdapter#localize`
 
 ## [0.1.0] - 2021-12-27
 

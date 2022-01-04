@@ -8,4 +8,8 @@ struct Rex::DevAdapter
   def localize(value, *args) : String
     value.to_s
   end
+
+  def localize(value, **named_args) : String
+    value.to_s
+  end
 end
