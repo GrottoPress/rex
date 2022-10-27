@@ -63,7 +63,7 @@
    end
    ```
 
-1. The consumer application then configures *Rex* to use this adapter:
+1. The consumer application configures *Rex* to use this adapter:
 
    ```crystal
    # ->>> src/config/i18n.cr
@@ -73,7 +73,7 @@
    end
    ```
 
-   The consumer application sets up translations according to whatever backend they are using.
+1. The consumer application sets up translations according to whatever backend they are using.
 
 ### Testing
 
