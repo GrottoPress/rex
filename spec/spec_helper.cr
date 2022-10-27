@@ -4,18 +4,18 @@ require "../src/rex"
 private struct SomeAdapter
   include Rex::Adapter
 
-  def translate(text : String | Symbol, *args) : String
+  def translate(key : String | Symbol, *args) : String
     translations = {
       named: "Hello, %{name}!",
       unnamed: "Hello, %s!",
       plain: "Hello, World!"
     }
 
-    sprintf(translations[text], *args)
+    sprintf(translations[key], *args)
   end
 
-  def translate(text : String | Symbol, **named_args) : String
-    translate(text, named_args)
+  def translate(key : String | Symbol, **named_args) : String
+    translate(key, named_args)
   end
 
   def localize(value, *args) : String

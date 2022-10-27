@@ -8,8 +8,8 @@ module Rex
     setting adapter : Rex::Adapter
   end
 
-  def self.t(text, *args, **named_args)
-    Rex.settings.adapter.translate(text, *args, **named_args)
+  def self.t(key, *args, **named_args)
+    Rex.settings.adapter.translate(key, *args, **named_args)
   end
 
   def self.l(value, *args, **named_args)

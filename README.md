@@ -28,10 +28,10 @@
 
    ```crystal
    # Translation
-   Rex.t(:some_text, name: "Ama")
-   Rex.t("some_text", {name: "John"})
-   Rex.t("some.text", 45, "Judith")
-   Rex.t(:another_text)
+   Rex.t(:some_key, name: "Ama")
+   Rex.t("some_key", {name: "John"})
+   Rex.t("some.key", 45, "Judith")
+   Rex.t(:another_key)
 
    # Localization
    Rex.l(Time.utc)
@@ -48,9 +48,9 @@
    struct SomeAppI18nAdapter
      include Rex::Adapter
 
-     def translate(text : String | Symbol, *args) : String
+     def translate(key : String | Symbol, *args) : String
        # You may use any i18n shard as backend
-       Somei18nShard.translate(text, *args)
+       Somei18nShard.translate(key, *args)
      end
 
      def localize(value, *args) : String
@@ -84,8 +84,8 @@
 
 Rex.temp_config(adapter: Rex::DevAdapter.new) do
   # ...
-  # `Rex::DevAdapter` returns the text passed to `Rex.t` unchanged
-  Rex.t(:some_text, {name: "Kwame"}).should(eq "some_text")
+  # `Rex::DevAdapter` returns the key passed to `Rex.t` unchanged
+  Rex.t(:some_key, {name: "Kwame"}).should(eq "some_key")
   # ...
 end
 ```
