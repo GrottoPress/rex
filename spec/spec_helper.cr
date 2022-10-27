@@ -14,6 +14,10 @@ private struct SomeAdapter
     sprintf(translations[text], *args)
   end
 
+  def translate(text : String | Symbol, **named_args) : String
+    translate(text, named_args)
+  end
+
   def localize(value, *args) : String
     value.to_s
   end
