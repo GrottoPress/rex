@@ -73,6 +73,19 @@
    end
    ```
 
+   If the i18n backend evaluates translations at compile time (eg: [Rosetta](https://github.com/wout/rosetta)), the application should define a `Rex.t` macro instead:
+
+   ```crystal
+   # ->>> src/config/i18n.cr
+
+   module Rex
+     macro t(text, **named_args)
+       Rosetta.find({{ text.id.stringify }})
+         .t({{ named_args unless named_args.empty? }})
+     end
+   end
+   ```
+
 1. The consumer application sets up translations according to whatever backend they are using.
 
 ### Testing
