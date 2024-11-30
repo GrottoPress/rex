@@ -93,14 +93,18 @@
 *Rex* comes with `Rex::DevAdapter` which may be used for tests:
 
 ```crystal
+# ->>> spec/my_app/spec_helper.cr
+
+Rex.configure do |settings|
+  settings.adapter = Rex::DevAdapter.new
+end
+```
+
+```crystal
 # ->>> spec/my_app/some_spec.cr
 
-Rex.temp_config(adapter: Rex::DevAdapter.new) do
-  # ...
-  # `Rex::DevAdapter` returns the key passed to `Rex.t` unchanged
-  Rex.t(:some_key, {name: "Kwame"}).should(eq "some_key")
-  # ...
-end
+# `Rex::DevAdapter` returns the key passed to `Rex.t` unchanged
+Rex.t(:some_key, {name: "Kwame"}).should(eq "some_key")
 ```
 
 ## Development

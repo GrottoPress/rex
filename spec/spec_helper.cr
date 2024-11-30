@@ -1,7 +1,7 @@
 require "spec"
 require "../src/rex"
 
-private struct SomeAdapter
+struct SomeAdapter
   include Rex::Adapter
 
   def translate(key : String | Symbol, *args) : String
@@ -26,5 +26,3 @@ end
 Rex.configure do |settings|
   settings.adapter = SomeAdapter.new
 end
-
-Habitat.raise_if_missing_settings!
